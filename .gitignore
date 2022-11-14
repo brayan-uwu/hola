@@ -1,18 +1,85 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 
-# Other files and folders
-.settings/
+namespace mensaje
+{
+     
+    static class ArrayExtensions
+    {
+        public static int IndexOf<t>(this t[] array, t value)
+        {
+            return Array.IndexOf(array, value);
+        }
+    }
+    class program
+    {
+       
+     
+        public static int[] convertNumber(string frase)
+        {
+            char[] charFrase = frase.ToCharArray();
+            int[] numbers = new int[charFrase.Length];
+            for (int i = 0; i < charFrase.Length; i++)
+            {
+                numbers[i] = numberTo(charFrase[i]);
+            }
+            return numbers;
+        }
+        public static int numberTo(char letter)
+        {
+            char[] alfabeto = { ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+            int index = alfabeto.IndexOf(letter);
+            return index;
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("para ingresar de una frase a numero presiona <1> ");
+            Console.WriteLine("para ingresar de un numero a frase presiona <2>");
+            float opc = float.Parse(Console.ReadLine());
+            switch (opc)
+            {
+                case 1:
+                    Console.WriteLine("DE FRASE A NUMERO");
+                    int[,] clave = { { 1, 2, 1 }, { 0, -1, 3 }, { 2, 1, 0 } };
+                    Console.WriteLine("ingresa la frase");
+                    string frase = Console.ReadLine();
+                    int[] numeros = convertNumber(frase);
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+                    for (int i = 0; i < numeros.Length; i++) {
+
+                        {
+                            Console.WriteLine(numeros[i] + " ");
+                        }
+                        Console.ReadKey();
+                    }
+                    break;
+                    
+                case 2:
+                    Console.WriteLine("de numero a palabra");
+                    Console.WriteLine("ingresa el numero");
+                    int c = int.Parse(Console.ReadLine());
+
+                    if (c >= 1)
+                    {
+                        Console.WriteLine("NO ME SALIO EL SEGUNDO NO LE ENTENDI PIDO PERDON NO ME BAJES MUCHAS DECIMAS :(   " );
+                    }
+                    Console.ReadKey(true);
+                    break ;
+                    default:
+                    Console.WriteLine("OPCION INCORRECTA");
+                    Console.ReadKey();
+                    break;
+
+                   
+            }
+        }
+        }
+
+        }
+    
